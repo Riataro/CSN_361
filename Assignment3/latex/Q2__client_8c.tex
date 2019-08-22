@@ -1,0 +1,102 @@
+\hypertarget{Q2__client_8c}{}\section{Code/\+Q2\+\_\+client.c File Reference}
+\label{Q2__client_8c}\index{Code/Q2\_client.c@{Code/Q2\_client.c}}
+{\ttfamily \#include $<$arpa/inet.\+h$>$}\newline
+{\ttfamily \#include $<$netinet/in.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$sys/socket.\+h$>$}\newline
+{\ttfamily \#include $<$sys/types.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{Q2__client_8c_ac0a4ce3bd388c7823743b526e7cb77fb}{I\+P\+\_\+\+P\+R\+O\+T\+O\+C\+OL}}~0
+\item 
+\#define \mbox{\hyperlink{Q2__client_8c_ad8a262037cbfb38d1512f0073eeb7a66}{I\+P\+\_\+\+A\+D\+D\+R\+E\+SS}}~\char`\"{}127.\+0.\+0.\+1\char`\"{}
+\item 
+\#define \mbox{\hyperlink{Q2__client_8c_a47a4d3bbd05894abbce0ffd1d266aa88}{P\+O\+R\+T\+\_\+\+NO}}~15050
+\item 
+\#define \mbox{\hyperlink{Q2__client_8c_a30ba2113ad1b0f91029d017fc988d9af}{N\+E\+T\+\_\+\+B\+U\+F\+\_\+\+S\+I\+ZE}}~32
+\item 
+\#define \mbox{\hyperlink{Q2__client_8c_abace6f1e028b11cc237bd95c5dbe451a}{cipher\+Key}}~\textquotesingle{}S\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{Q2__client_8c_a6e618c0ec6ffc8ac4489d11c65a5a67c}{sendrecvflag}}~0
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{Q2__client_8c_a37e9b2e0b0fcbe7d2d5bd9c9467c1fb8}{clear\+Buf}} (char $\ast$b)
+\item 
+char \mbox{\hyperlink{Q2__client_8c_a4fc6ad5854f646cf1e284f66e104219f}{Cipher}} (char ch)
+\item 
+int \mbox{\hyperlink{Q2__client_8c_a0d285ee71db2ee39e24c4a6e552991f3}{recv\+File}} (char $\ast$buf, int s)
+\item 
+int \mbox{\hyperlink{Q2__client_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{Q2__client_8c_abace6f1e028b11cc237bd95c5dbe451a}\label{Q2__client_8c_abace6f1e028b11cc237bd95c5dbe451a}} 
+\index{Q2\_client.c@{Q2\_client.c}!cipherKey@{cipherKey}}
+\index{cipherKey@{cipherKey}!Q2\_client.c@{Q2\_client.c}}
+\subsubsection{\texorpdfstring{cipherKey}{cipherKey}}
+{\footnotesize\ttfamily \#define cipher\+Key~\textquotesingle{}S\textquotesingle{}}
+
+\mbox{\Hypertarget{Q2__client_8c_ad8a262037cbfb38d1512f0073eeb7a66}\label{Q2__client_8c_ad8a262037cbfb38d1512f0073eeb7a66}} 
+\index{Q2\_client.c@{Q2\_client.c}!IP\_ADDRESS@{IP\_ADDRESS}}
+\index{IP\_ADDRESS@{IP\_ADDRESS}!Q2\_client.c@{Q2\_client.c}}
+\subsubsection{\texorpdfstring{IP\_ADDRESS}{IP\_ADDRESS}}
+{\footnotesize\ttfamily \#define I\+P\+\_\+\+A\+D\+D\+R\+E\+SS~\char`\"{}127.\+0.\+0.\+1\char`\"{}}
+
+\mbox{\Hypertarget{Q2__client_8c_ac0a4ce3bd388c7823743b526e7cb77fb}\label{Q2__client_8c_ac0a4ce3bd388c7823743b526e7cb77fb}} 
+\index{Q2\_client.c@{Q2\_client.c}!IP\_PROTOCOL@{IP\_PROTOCOL}}
+\index{IP\_PROTOCOL@{IP\_PROTOCOL}!Q2\_client.c@{Q2\_client.c}}
+\subsubsection{\texorpdfstring{IP\_PROTOCOL}{IP\_PROTOCOL}}
+{\footnotesize\ttfamily \#define I\+P\+\_\+\+P\+R\+O\+T\+O\+C\+OL~0}
+
+\mbox{\Hypertarget{Q2__client_8c_a30ba2113ad1b0f91029d017fc988d9af}\label{Q2__client_8c_a30ba2113ad1b0f91029d017fc988d9af}} 
+\index{Q2\_client.c@{Q2\_client.c}!NET\_BUF\_SIZE@{NET\_BUF\_SIZE}}
+\index{NET\_BUF\_SIZE@{NET\_BUF\_SIZE}!Q2\_client.c@{Q2\_client.c}}
+\subsubsection{\texorpdfstring{NET\_BUF\_SIZE}{NET\_BUF\_SIZE}}
+{\footnotesize\ttfamily \#define N\+E\+T\+\_\+\+B\+U\+F\+\_\+\+S\+I\+ZE~32}
+
+\mbox{\Hypertarget{Q2__client_8c_a47a4d3bbd05894abbce0ffd1d266aa88}\label{Q2__client_8c_a47a4d3bbd05894abbce0ffd1d266aa88}} 
+\index{Q2\_client.c@{Q2\_client.c}!PORT\_NO@{PORT\_NO}}
+\index{PORT\_NO@{PORT\_NO}!Q2\_client.c@{Q2\_client.c}}
+\subsubsection{\texorpdfstring{PORT\_NO}{PORT\_NO}}
+{\footnotesize\ttfamily \#define P\+O\+R\+T\+\_\+\+NO~15050}
+
+\mbox{\Hypertarget{Q2__client_8c_a6e618c0ec6ffc8ac4489d11c65a5a67c}\label{Q2__client_8c_a6e618c0ec6ffc8ac4489d11c65a5a67c}} 
+\index{Q2\_client.c@{Q2\_client.c}!sendrecvflag@{sendrecvflag}}
+\index{sendrecvflag@{sendrecvflag}!Q2\_client.c@{Q2\_client.c}}
+\subsubsection{\texorpdfstring{sendrecvflag}{sendrecvflag}}
+{\footnotesize\ttfamily \#define sendrecvflag~0}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{Q2__client_8c_a4fc6ad5854f646cf1e284f66e104219f}\label{Q2__client_8c_a4fc6ad5854f646cf1e284f66e104219f}} 
+\index{Q2\_client.c@{Q2\_client.c}!Cipher@{Cipher}}
+\index{Cipher@{Cipher}!Q2\_client.c@{Q2\_client.c}}
+\subsubsection{\texorpdfstring{Cipher()}{Cipher()}}
+{\footnotesize\ttfamily char Cipher (\begin{DoxyParamCaption}\item[{char}]{ch }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{Q2__client_8c_a37e9b2e0b0fcbe7d2d5bd9c9467c1fb8}\label{Q2__client_8c_a37e9b2e0b0fcbe7d2d5bd9c9467c1fb8}} 
+\index{Q2\_client.c@{Q2\_client.c}!clearBuf@{clearBuf}}
+\index{clearBuf@{clearBuf}!Q2\_client.c@{Q2\_client.c}}
+\subsubsection{\texorpdfstring{clearBuf()}{clearBuf()}}
+{\footnotesize\ttfamily void clear\+Buf (\begin{DoxyParamCaption}\item[{char $\ast$}]{b }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{Q2__client_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{Q2__client_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{Q2\_client.c@{Q2\_client.c}!main@{main}}
+\index{main@{main}!Q2\_client.c@{Q2\_client.c}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{Q2__client_8c_a0d285ee71db2ee39e24c4a6e552991f3}\label{Q2__client_8c_a0d285ee71db2ee39e24c4a6e552991f3}} 
+\index{Q2\_client.c@{Q2\_client.c}!recvFile@{recvFile}}
+\index{recvFile@{recvFile}!Q2\_client.c@{Q2\_client.c}}
+\subsubsection{\texorpdfstring{recvFile()}{recvFile()}}
+{\footnotesize\ttfamily int recv\+File (\begin{DoxyParamCaption}\item[{char $\ast$}]{buf,  }\item[{int}]{s }\end{DoxyParamCaption})}
+
